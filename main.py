@@ -1,10 +1,11 @@
-from datetime import datetime
+from datetime import datetime, date
 
-def get_days_from_today(date):
-    input_date = datetime.strptime(date, "%Y-%m-%d").date()
-    
-    today = datetime.today().date()
-    
-    difference = today - input_date
-    
-    return difference.days
+def get_days_from_today(date: str):
+    try:
+        target_date = datetime.strptime(date, "%Y-%m-%d").date()
+    except ValueError:
+        return None
+
+    today = date.today()
+    diff = today - target_date
+    return diff.days
