@@ -6,6 +6,9 @@ def get_days_from_today(date: str):
     except ValueError:
         return None
 
-    today = date.today()
+    target_date = datetime.strptime(date, "%Y-%m-%d")
+    today = datetime.today()
     diff = today - target_date
     return diff.days
+
+print (get_days_from_today("2025-11-11"))
